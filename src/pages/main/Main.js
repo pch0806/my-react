@@ -5,7 +5,7 @@ const Main = ({ push }) => {
 
     return (
         <>
-            MAIN
+            MAIN!!!
         </>
     );
 };
