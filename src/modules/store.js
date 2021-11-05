@@ -5,15 +5,21 @@ import { createBrowserHistory } from 'history';
 import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
 
+import { AUTH, authReducer } from './authSlice';
+import authSaga from './authSaga';
+
 const createRootReducer = (history) =>
   combineReducers({
     router: connectRouter(history),
+    [AUTH]: authReducer,
   });
 
 const sagaMiddleware = createSagaMiddleware();
 
 function* rootSaga() {
-  yield all([]);
+  yield all([
+    authSaga(),
+  ]);
 }
 
 export const history = createBrowserHistory();
